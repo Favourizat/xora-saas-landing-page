@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import clsx from "clsx"
-import { SlideDown } from "react-slidedown";
-import 'react-slidedown/lib/slidedown.css'
+import React from "react"
+import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
-const FaqItem = ({ item, index }) => {
-    const [activeId, setActiveId] = useState(null)
+
+const FaqItem = ({ item, index, activeId, setActiveId, }) => {
+    
     const active = activeId === item.id;
 
     return (
@@ -29,11 +29,21 @@ const FaqItem = ({ item, index }) => {
                 </div>
             </div>
 
-            <SlideDown>
-                {activeId === item.id && (
-                    <div className="body-3 px-7 py-3.5">{item.answer}</div>
-                )}
-            </SlideDown>
+           <AnimatePresence>
+    {activeId === item.id && (
+        <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+        >
+            <div className="body-3 px-7 py-3.5">
+                {item.answer}
+            </div>
+        </motion.div>
+    )}
+</AnimatePresence>
 
             <div className={clsx("g5 -bottom-7 -top-7 left-0 right-0 -z-1 rounded-3xl opacity-0 transition-opacity duration-500 absolute", active && "opacity-100")}>
                 <div className="g4 inset-0.5 absolute -z-1 rounded-3xl" />

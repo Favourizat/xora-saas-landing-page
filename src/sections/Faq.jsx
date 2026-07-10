@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Element } from "react-scroll";
 import { faq } from "../constants";
 import FaqItem from "../components/FaqItem";
 
 const Faq = () => {
+    const [activeId, setActiveId] = useState(null);
+    
     const halfLength = Math.floor(faq.length / 2)
 
     return (
@@ -28,16 +31,27 @@ const Faq = () => {
                         </div>
 
                         <div className="relative flex-1 pt-24">
-                            {faq.slice(0, halfLength).map((item, index) => (
-                                <FaqItem key={item.id} item={item} index={index}/>
-                            ))}
-                        </div>
+    {faq.slice(0, halfLength).map((item, index) => (
+        <FaqItem
+            key={item.id}
+            item={item}
+            index={index}
+            activeId={activeId}
+            setActiveId={setActiveId}
+        />
+    ))}
+</div>
                         <div className="relative flex-1 lg:pt-24">
-                            {faq.slice(halfLength).map((item, index) => (
-                                <FaqItem key={item.id} item={item} index={halfLength + index}/>
-                            ))}
-                        </div>
-
+    {faq.slice(halfLength).map((item, index) => (
+        <FaqItem
+            key={item.id}
+            item={item}
+            index={halfLength + index}
+            activeId={activeId}
+            setActiveId={setActiveId}
+        />
+    ))}
+</div>
                     </div>
 
                     <div className="faq-lin_after absolute left-[calc(50%-1px)] top-0 -z-1 h-full w-0.5 bg-s2 max-lg:hidden" />
