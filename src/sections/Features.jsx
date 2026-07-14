@@ -22,7 +22,7 @@ const Features = () => {
                                     </div>
                                 </div>
 
-                                <p className="text-base md:text-lg font-normal leading-relaxed">{caption }</p>
+                                <p className="text-sm mb-5 md:mb-6 md:h3 break-words">{caption }</p>
                                 <h2 className="max-w-400 mb-7 h3 text-p4 max-md:mb-6 max-md:h5">{title }</h2>
 
                                 <p className="mb-11 body-1 max-md:mb-8 max-md:body-3">
