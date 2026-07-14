@@ -141,7 +141,7 @@
   }
 
   .caption {
-    @apply text-sm md:small-2 mb-5 uppercase text-p3;
+    @apply text-xs md:small-2 mb-5 uppercase md:text-p3;
   }
 
   .scroll-hide::-webkit-scrollbar {
