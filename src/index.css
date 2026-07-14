@@ -140,9 +140,6 @@
     @apply mx-auto max-w-[1252px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4;
   }
 
-  .caption {
-    @apply text-xs md:small-2 mb-5 uppercase md:text-p3;
-  }
 
   .scroll-hide::-webkit-scrollbar {
     display: none;
